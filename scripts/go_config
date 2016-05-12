@@ -1,0 +1,24 @@
+#!/bin/bash
+#to config go from scratch
+
+echo "Hello user"
+echo "updating apt-get"
+sudo apt-get update -y
+echo "upgrading apt-get" 
+sudo apt-get upgrade -y
+echo "install git" 
+sudo apt-get install git -y
+echo "download go from cloud"
+sudo curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
+echo "extracting go dependency"
+sudo tar -xvf go1.6.linux-amd64.tar.gz
+echo "moving to usr/local"
+sudo mv go /usr/local
+rd -rf go1.6.linux-amd64.tar.gz
+echo " changing profile file "
+echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.profile
+
+echo "creating workspace directory"
+mkdir workspace
+
+export GOPATH=$HOME/workspace
