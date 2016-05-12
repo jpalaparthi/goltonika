@@ -23,6 +23,7 @@ func main() {
 		return
 	}*/
 	addr, err := getIP()
+	addr = addr + ":27000"
 	if err != nil {
 		panic(err)
 	}
